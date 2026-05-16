@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="LookiFy", layout="centered")
+st.set_page_config(page_title="Lookify", layout="centered")
 
 # ===== ESTILO =====
 st.markdown(
@@ -11,20 +11,20 @@ st.markdown(
         color: white;
     }
 
-   .main-title {
-    font-size: 64px;
-    font-weight: 900;
-    margin-bottom: 0;
-    line-height: 1;
-}
+    .main-title {
+        font-size: 64px;
+        font-weight: 900;
+        margin-bottom: 0;
+        line-height: 1;
+    }
 
-.subtitle {
-    color: #9ca3af;
-    margin-top: 10px;
-    margin-bottom: 35px;
-    font-size: 22px;
-    font-weight: 500;
-}
+    .subtitle {
+        color: #9ca3af;
+        margin-top: 10px;
+        margin-bottom: 35px;
+        font-size: 22px;
+        font-weight: 500;
+    }
 
     .hero {
         background: linear-gradient(135deg, #1f1f22, #000000);
@@ -66,6 +66,22 @@ st.markdown(
         margin-top: 40px;
         font-size: 14px;
     }
+
+    .stButton button {
+        background-color: #141416;
+        color: white;
+        border: 1px solid #2a2a2f;
+        border-radius: 20px;
+        padding: 18px;
+        font-size: 20px;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .stButton button:hover {
+        border: 1px solid #4b5563;
+        transform: scale(1.01);
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -73,7 +89,7 @@ st.markdown(
 
 # ===== HEADER =====
 st.markdown(
-    '<p class="main-title">LookFy ✨</p>',
+    '<p class="main-title">Lookify ✨</p>',
     unsafe_allow_html=True
 )
 
@@ -94,55 +110,40 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# ===== BOTÃO =====
+# ===== BOTÃO IA =====
 if st.button("✨ Gerar Look"):
     st.success("IA criando combinações personalizadas...")
 
 # ===== LOOKS =====
-looks = [
-    {
-        "nome": "Look Casual",
-        "emoji": "🖤"
-    },
-    {
-        "nome": "Look Festa",
-        "emoji": "✨"
-    },
-    {
-        "nome": "Look Trabalho",
-        "emoji": "💼"
-    },
-    {
-        "nome": "Look Academia",
-        "emoji": "🏋️"
-    },
-    {
-        "nome": "Look Viagem",
-        "emoji": "✈️"
-    },
-    {
-        "nome": "Look Faculdade",
-        "emoji": "📚"
-    }
-]
-
 st.subheader("Looks sugeridos")
 
-for look in looks:
+looks = {
+    "🖤 Look Casual": "Combinação perfeita para o dia a dia.",
+    "✨ Look Festa": "Looks elegantes para eventos noturnos.",
+    "💼 Look Trabalho": "Visual profissional e moderno.",
+    "🏋️ Look Academia": "Conforto e estilo para treinar.",
+    "✈️ Look Viagem": "Looks confortáveis para viajar.",
+    "📚 Look Faculdade": "Estilo casual para a rotina universitária."
+}
 
-    st.markdown(
-        f"""
-        <div class="card">
-            <div class="look-title">
-                {look['emoji']} {look['nome']}
+for nome, descricao in looks.items():
+
+    if st.button(nome, use_container_width=True):
+        st.markdown(
+            f'''
+            <div class="card">
+                <div class="look-title">{nome}</div>
+                <br>
+                <div style="color:#c4c4c4; font-size:18px;">
+                    {descricao}
+                </div>
             </div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+            ''',
+            unsafe_allow_html=True
+        )
 
 # ===== FOOTER =====
 st.markdown(
-    '<div class="footer">LookFy • Projeto de Faculdade • Fashion Tech + IA</div>',
+    '<div class="footer">Lookify • Projeto de Faculdade • Fashion Tech + IA</div>',
     unsafe_allow_html=True
 )
