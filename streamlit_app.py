@@ -35,13 +35,6 @@ st.markdown(
     .hero-title {
         font-size: 34px;
         font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .hero-text {
-        color: #c4c4c4;
-        line-height: 1.6;
-        font-size: 16px;
     }
 
     .card {
@@ -93,18 +86,7 @@ st.markdown(
         <div class="hero-title">
             Seu estilo, elevado pela IA.
         </div>
-
-        # ===== HERO =====
-st.markdown(
-    """
-    <div class="hero">
-        <div class="hero-title">
-            Seu estilo, elevado pela IA.
-        </div>
     </div>
-    """,
-    unsafe_allow_html=True
-)
     """,
     unsafe_allow_html=True
 )
