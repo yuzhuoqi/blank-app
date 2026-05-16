@@ -108,6 +108,18 @@ looks = [
     {
         "nome": "Look Trabalho",
         "emoji": "💼"
+    },
+    {
+        "nome": "Look Academia",
+        "emoji": "🏋️"
+    },
+    {
+        "nome": "Look Viagem",
+        "emoji": "✈️"
+    },
+    {
+        "nome": "Look Faculdade",
+        "emoji": "📚"
     }
 ]
 
