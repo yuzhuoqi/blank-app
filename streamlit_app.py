@@ -94,11 +94,17 @@ st.markdown(
             Seu estilo, elevado pela IA.
         </div>
 
-        <div class="hero-text">
-            Descubra combinações inteligentes, modernas e personalizadas
-            com base nas suas roupas e no seu estilo.
+        # ===== HERO =====
+st.markdown(
+    """
+    <div class="hero">
+        <div class="hero-title">
+            Seu estilo, elevado pela IA.
         </div>
     </div>
+    """,
+    unsafe_allow_html=True
+)
     """,
     unsafe_allow_html=True
 )
