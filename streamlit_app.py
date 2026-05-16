@@ -11,17 +11,20 @@ st.markdown(
         color: white;
     }
 
-    .main-title {
-        font-size: 48px;
-        font-weight: 800;
-        margin-bottom: 0;
-    }
+   .main-title {
+    font-size: 64px;
+    font-weight: 900;
+    margin-bottom: 0;
+    line-height: 1;
+}
 
-    .subtitle {
-        color: #9ca3af;
-        margin-top: 0;
-        margin-bottom: 30px;
-    }
+.subtitle {
+    color: #9ca3af;
+    margin-top: 10px;
+    margin-bottom: 35px;
+    font-size: 22px;
+    font-weight: 500;
+}
 
     .hero {
         background: linear-gradient(135deg, #1f1f22, #000000);
