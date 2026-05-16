@@ -62,13 +62,6 @@ st.markdown(
     .look-title {
         font-size: 24px;
         font-weight: bold;
-        margin-bottom: 12px;
-    }
-
-    .look-tags {
-        color: #d4d4d8;
-        line-height: 1.8;
-        font-size: 15px;
     }
 
     .footer {
@@ -118,18 +111,15 @@ if st.button("✨ Gerar Look"):
 looks = [
     {
         "nome": "Look Casual",
-        "emoji": "🖤",
-        "tags": ["Jaqueta preta", "Camiseta branca", "Calça cargo"]
+        "emoji": "🖤"
     },
     {
         "nome": "Look Festa",
-        "emoji": "✨",
-        "tags": ["Vestido preto", "Bolsa prata", "Salto alto"]
+        "emoji": "✨"
     },
     {
         "nome": "Look Trabalho",
-        "emoji": "💼",
-        "tags": ["Blazer oversized", "Calça alfaiataria", "Tênis branco"]
+        "emoji": "💼"
     }
 ]
 
@@ -137,17 +127,11 @@ st.subheader("Looks sugeridos")
 
 for look in looks:
 
-    tags = " • ".join(look["tags"])
-
     st.markdown(
         f"""
         <div class="card">
             <div class="look-title">
                 {look['emoji']} {look['nome']}
-            </div>
-
-            <div class="look-tags">
-                {tags}
             </div>
         </div>
         """,
