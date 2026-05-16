@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="LookFy", layout="centered")
+st.set_page_config(page_title="LookiFy", layout="centered")
 
 # ===== ESTILO =====
 st.markdown(
