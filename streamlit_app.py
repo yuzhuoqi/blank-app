@@ -91,12 +91,12 @@ st.markdown(
     """
     <div class="hero">
         <div class="hero-title">
-            O look ideal para hoje.
+            Seu estilo, elevado pela IA.
         </div>
 
         <div class="hero-text">
-            A IA analisou seu armário, o clima e seu estilo
-            para criar combinações perfeitas para o seu dia.
+            Descubra combinações inteligentes, modernas e personalizadas
+            com base nas suas roupas e no seu estilo.
         </div>
     </div>
     """,
