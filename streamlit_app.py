@@ -41,6 +41,7 @@ st.markdown(
     .hero-text {
         color: #c4c4c4;
         line-height: 1.6;
+        font-size: 16px;
     }
 
     .card {
@@ -61,18 +62,13 @@ st.markdown(
     .look-title {
         font-size: 24px;
         font-weight: bold;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
     }
 
-    .tag {
-        display: inline-block;
-        background: #27272a;
-        padding: 8px 14px;
-        border-radius: 999px;
-        margin-right: 8px;
-        margin-top: 10px;
-        font-size: 14px;
-        color: #f4f4f5;
+    .look-tags {
+        color: #d4d4d8;
+        line-height: 1.8;
+        font-size: 15px;
     }
 
     .footer {
@@ -141,9 +137,7 @@ st.subheader("Looks sugeridos")
 
 for look in looks:
 
-    tags_html = "".join(
-        [f'<span class="tag">{tag}</span>' for tag in look["tags"]]
-    )
+    tags = " • ".join(look["tags"])
 
     st.markdown(
         f"""
@@ -152,8 +146,8 @@ for look in looks:
                 {look['emoji']} {look['nome']}
             </div>
 
-            <div>
-                {tags_html}
+            <div class="look-tags">
+                {tags}
             </div>
         </div>
         """,
