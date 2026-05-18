@@ -282,7 +282,7 @@ with c1:
         "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
         use_container_width=True
     )
-    st.markdown('<div class="product-title">Aura Jacket</div>', unsafe_allow_html=True)
+    st.markdown('<div class="product-title">Vintage Jeans</div>', unsafe_allow_html=True)
     st.markdown('<div class="product-price">R$ 129,90</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -302,7 +302,7 @@ with c3:
         "https://images.unsplash.com/photo-1584917865442-de89df76afd3",
         use_container_width=True
     )
-    st.markdown('<div class="product-title">Luna Bag</div>', unsafe_allow_html=True)
+    st.markdown('<div class="product-title">Obsidian Arc Mini Bag</div>', unsafe_allow_html=True)
     st.markdown('<div class="product-price">R$ 89,90</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
