@@ -101,7 +101,7 @@ header {visibility:hidden;}
 .product-title{
     font-size:14px;
     font-weight:700;
-    color:#2e1065;
+    color:#111827;
 }
 
 .product-price{
