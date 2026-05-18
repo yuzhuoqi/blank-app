@@ -1,119 +1,140 @@
-# Interface da tela “Look” — Lookify
-
-```python
 import streamlit as st
 
-st.set_page_config(
-    page_title="Lookify - Look",
-    layout="centered"
-)
+st.set_page_config(page_title="Lookify", layout="wide")
 
-# ===== CSS =====
+# ================= CSS =================
 st.markdown("""
 <style>
 
 .stApp{
-    background: linear-gradient(180deg,#f8f4ff,#efe7ff);
+    background:#f5f2fb;
     font-family:sans-serif;
 }
 
+/* REMOVE */
 #MainMenu {visibility:hidden;}
 footer {visibility:hidden;}
 header {visibility:hidden;}
 
-.logo{
-    font-size:40px;
-    font-weight:900;
-    color:#2e1065;
+/* SIDES */
+.block-container{
+    padding-top:1rem;
+    padding-bottom:4rem;
 }
 
-.page-title{
-    font-size:34px;
-    font-weight:800;
-    color:#2e1065;
-    margin-top:10px;
-}
-
-.subtitle{
-    color:#6d5b8c;
-    font-size:16px;
-    margin-bottom:20px;
-}
-
-.look-card{
-    background:rgba(255,255,255,0.82);
-    border-radius:28px;
+/* CARD */
+.card{
+    background:white;
+    border-radius:24px;
     padding:18px;
-    border:1px solid rgba(255,255,255,0.5);
-    box-shadow:0 8px 20px rgba(168,85,247,0.08);
-    margin-bottom:25px;
-}
-
-.look-name{
-    font-size:24px;
-    font-weight:800;
-    color:#2e1065;
-    margin-top:12px;
-}
-
-.look-desc{
-    color:#6d5b8c;
-    font-size:15px;
-    line-height:1.6;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+    margin-bottom:18px;
 }
 
 .section-title{
-    font-size:24px;
+    font-size:22px;
     font-weight:800;
-    color:#2e1065;
+    color:#1f1b2d;
     margin-bottom:15px;
 }
 
-.tag{
-    background:#e9d5ff;
-    color:#7e22ce;
-    padding:8px 14px;
-    border-radius:999px;
-    font-size:13px;
+.logo{
+    font-size:38px;
+    font-weight:900;
+    color:#1f1b2d;
+}
+
+.subtitle{
+    color:#6b7280;
+    font-size:15px;
+}
+
+.mini-title{
+    font-size:14px;
+    color:#6b7280;
+    font-weight:600;
+}
+
+.look-title{
+    font-size:22px;
+    font-weight:800;
+    color:#1f1b2d;
+}
+
+.button-purple button{
+    background:#8b5cf6;
+    color:white;
+    border:none;
+    border-radius:14px;
+}
+
+.quick-card{
+    background:#faf7ff;
+    border-radius:20px;
+    padding:16px;
+    text-align:center;
+    border:1px solid #ede9fe;
+    min-height:120px;
+}
+
+.quick-icon{
+    font-size:30px;
+}
+
+.quick-text{
+    font-size:14px;
     font-weight:700;
-    display:inline-block;
-    margin-right:8px;
-    margin-bottom:8px;
+    margin-top:10px;
+    color:#1f1b2d;
 }
 
 .product-card{
-    background:rgba(255,255,255,0.82);
-    border-radius:22px;
-    padding:12px;
-    border:1px solid rgba(255,255,255,0.5);
-    box-shadow:0 8px 20px rgba(168,85,247,0.08);
+    background:white;
+    border-radius:18px;
+    padding:10px;
+    border:1px solid #ececec;
 }
 
 .product-title{
-    font-size:14px;
+    font-size:13px;
     font-weight:700;
     color:#111827;
 }
 
 .product-price{
     color:#111827;
+    font-size:14px;
     font-weight:800;
-    margin-top:5px;
 }
 
-.stButton button{
-    background:linear-gradient(135deg,#c084fc,#a855f7);
-    color:white;
-    border:none;
-    border-radius:18px;
-    padding:12px 18px;
+.small-purple{
+    color:#8b5cf6;
+    font-size:12px;
     font-weight:700;
-    box-shadow:0 8px 20px rgba(168,85,247,0.20);
-    transition:0.3s;
 }
 
-.stButton button:hover{
-    transform:scale(1.02);
+.info-card{
+    background:white;
+    border-radius:18px;
+    padding:14px;
+    margin-bottom:12px;
+    border:1px solid #ececec;
+}
+
+.info-title{
+    font-weight:700;
+    color:#1f1b2d;
+}
+
+.info-sub{
+    color:#6b7280;
+    font-size:13px;
+}
+
+.plus-card{
+    background:linear-gradient(135deg,#ede9fe,#ddd6fe);
+    border-radius:24px;
+    padding:20px;
 }
 
 .bottom-nav{
@@ -121,149 +142,238 @@ header {visibility:hidden;}
     bottom:0;
     left:0;
     right:0;
-    background:rgba(255,255,255,0.75);
-    backdrop-filter:blur(12px);
-    padding:15px;
-    border-top:1px solid rgba(255,255,255,0.5);
+    background:white;
+    border-top:1px solid #ececec;
     display:flex;
     justify-content:space-around;
+    padding:12px;
 }
 
 .nav-item{
     text-align:center;
-    color:#7c6a99;
     font-size:12px;
+    color:#6b7280;
 }
 
 .active{
-    color:#9333ea;
+    color:#8b5cf6;
     font-weight:700;
 }
 
 </style>
 """, unsafe_allow_html=True)
 
-# ===== HEADER =====
-st.markdown(
-    """
+# ================= LAYOUT =================
+left, right = st.columns([1,1])
+
+# ================= LEFT =================
+with left:
+
+    st.markdown("""
     <div style="display:flex;justify-content:space-between;align-items:center;">
-        <div style="font-size:28px;color:#7c6a99;">←</div>
+        <div style="font-size:26px;">☰</div>
         <div class="logo">lookify</div>
-        <div style="font-size:24px;">♡</div>
+        <div style="font-size:22px;">🔔</div>
     </div>
-    """,
-    unsafe_allow_html=True
-)
+    """, unsafe_allow_html=True)
 
-st.write("")
+    st.write("")
 
-st.markdown(
-    """
-    <div class="page-title">
-        Look do dia ✨
+    st.markdown("""
+    <div style="font-size:24px;font-weight:800;color:#1f1b2d;">
+        Bom dia, Júlia! 👋
     </div>
 
     <div class="subtitle">
-        Selecionado pela IA baseado no clima e no seu estilo.
+        Clima em São Paulo: 18°C ⛅
     </div>
-    """,
-    unsafe_allow_html=True
-)
+    """, unsafe_allow_html=True)
 
-# ===== LOOK PRINCIPAL =====
-st.markdown('<div class="look-card">', unsafe_allow_html=True)
+    st.write("")
 
-st.image(
-    "https://images.unsplash.com/photo-1529139574466-a303027c1d8b",
-    use_container_width=True
-)
+    # LOOK CARD
+    st.markdown('<div class="card">', unsafe_allow_html=True)
 
-st.markdown(
-    """
-    <div class="look-name">
-        Lavender Casual Fit
-    </div>
+    col1, col2 = st.columns([1,1])
 
-    <br>
+    with col1:
+        st.image(
+            "https://images.unsplash.com/photo-1529139574466-a303027c1d8b",
+            use_container_width=True
+        )
 
-    <div class="look-desc">
-        Um visual confortável e moderno para faculdade,
-        encontros ou rotina do dia a dia.
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+    with col2:
+        st.markdown("""
+        <div class="mini-title">✨ LOOK DO DIA</div>
+        <br>
+        <div class="look-title">Look casual</div>
 
-st.write("")
+        <div class="subtitle">
+        Perfeito para seu dia na faculdade
+        </div>
+        """, unsafe_allow_html=True)
 
-st.markdown(
-    """
-    <div>
-        <span class="tag">Casual</span>
-        <span class="tag">Minimalista</span>
-        <span class="tag">Street</span>
-        <span class="tag">Confortável</span>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+        st.write("")
 
-st.write("")
+        st.button("Ver look completo")
 
-st.button("✨ Gerar outro look", use_container_width=True)
-
-st.markdown('</div>', unsafe_allow_html=True)
-
-# ===== PEÇAS DO LOOK =====
-st.markdown(
-    '<div class="section-title">Peças do look</div>',
-    unsafe_allow_html=True
-)
-
-c1, c2, c3 = st.columns(3)
-
-with c1:
-    st.markdown('<div class="product-card">', unsafe_allow_html=True)
-    st.image(
-        "https://images.unsplash.com/photo-1521572267360-ee0c2909d518",
-        use_container_width=True
-    )
-    st.markdown('<div class="product-title">Classic White Tee</div>', unsafe_allow_html=True)
-    st.markdown('<div class="product-price">R$ 79,90</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-with c2:
-    st.markdown('<div class="product-card">', unsafe_allow_html=True)
-    st.image(
-        "https://images.unsplash.com/photo-1542272604-787c3835535d",
-        use_container_width=True
-    )
-    st.markdown('<div class="product-title">Wide Denim Pants</div>', unsafe_allow_html=True)
-    st.markdown('<div class="product-price">R$ 149,90</div>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+    # ACESSO RAPIDO
+    st.markdown('<div class="section-title">Acesso rápido</div>', unsafe_allow_html=True)
 
-with c3:
-    st.markdown('<div class="product-card">', unsafe_allow_html=True)
-    st.image(
-        "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
-        use_container_width=True
-    )
-    st.markdown('<div class="product-title">Urban Sneakers</div>', unsafe_allow_html=True)
-    st.markdown('<div class="product-price">R$ 219,90</div>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+    c1, c2, c3, c4 = st.columns(4)
 
-st.write("")
-st.write("")
-st.write("")
+    with c1:
+        st.markdown("""
+        <div class="quick-card">
+            <div class="quick-icon">✨</div>
+            <div class="quick-text">Montar look</div>
+        </div>
+        """, unsafe_allow_html=True)
 
-# ===== FOOTER =====
+    with c2:
+        st.markdown("""
+        <div class="quick-card">
+            <div class="quick-icon">👕</div>
+            <div class="quick-text">Meu armário</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with c3:
+        st.markdown("""
+        <div class="quick-card">
+            <div class="quick-icon">🛍️</div>
+            <div class="quick-text">Sugestões</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with c4:
+        st.markdown("""
+        <div class="quick-card">
+            <div class="quick-icon">📅</div>
+            <div class="quick-text">Calendário</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.write("")
+
+    # PRODUTOS
+    st.markdown('<div class="section-title">Sugestões para você</div>', unsafe_allow_html=True)
+
+    p1, p2, p3 = st.columns(3)
+
+    with p1:
+        st.markdown('<div class="product-card">', unsafe_allow_html=True)
+        st.image("https://images.unsplash.com/photo-1541099649105-f69ad21f3246", use_container_width=True)
+        st.markdown('<div class="product-title">Trench coat bege</div>', unsafe_allow_html=True)
+        st.markdown('<div class="product-price">R$ 129,90</div>', unsafe_allow_html=True)
+        st.markdown('<div class="small-purple">Patrocinado</div>', unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    with p2:
+        st.markdown('<div class="product-card">', unsafe_allow_html=True)
+        st.image("https://images.unsplash.com/photo-1542291026-7eec264c27ff", use_container_width=True)
+        st.markdown('<div class="product-title">Bota de couro</div>', unsafe_allow_html=True)
+        st.markdown('<div class="product-price">R$ 179,90</div>', unsafe_allow_html=True)
+        st.markdown('<div class="small-purple">Patrocinado</div>', unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    with p3:
+        st.markdown('<div class="product-card">', unsafe_allow_html=True)
+        st.image("https://images.unsplash.com/photo-1584917865442-de89df76afd3", use_container_width=True)
+        st.markdown('<div class="product-title">Bolsa marrom</div>', unsafe_allow_html=True)
+        st.markdown('<div class="product-price">R$ 89,90</div>', unsafe_allow_html=True)
+        st.markdown('<div class="small-purple">Patrocinado</div>', unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+
+# ================= RIGHT =================
+with right:
+
+    st.markdown('<div class="section-title">O que deseja fazer hoje?</div>', unsafe_allow_html=True)
+
+    r1, r2 = st.columns(2)
+
+    with r1:
+        st.markdown("""
+        <div class="card">
+            <div style="font-size:30px;">✨</div>
+            <br>
+            <div class="info-title">Montar look do dia</div>
+            <div class="info-sub">
+            Nossa IA cria o look perfeito para você.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with r2:
+        st.markdown("""
+        <div class="card">
+            <div style="font-size:30px;">👕</div>
+            <br>
+            <div class="info-title">Editar peças</div>
+            <div class="info-sub">
+            Adicione, edite ou remova roupas.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.write("")
+
+    st.markdown('<div class="section-title">Outras opções importantes</div>', unsafe_allow_html=True)
+
+    options = [
+        ("📊", "Estatísticas do armário"),
+        ("🔖", "Looks salvos"),
+        ("❤️", "Favoritos"),
+        ("☁️", "Clima e ocasiões"),
+        ("🤖", "IA conversacional")
+    ]
+
+    for icon, title in options:
+        st.markdown(f"""
+        <div class="info-card">
+            <div class="info-title">{icon} {title}</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.write("")
+
+    st.markdown("""
+    <div class="plus-card">
+        <div style="font-size:28px;font-weight:800;color:#6d28d9;">
+            Lookify Plus ✨
+        </div>
+
+        <br>
+
+        <div style="color:#4b5563;">
+            Tenha acesso ilimitado às funcionalidades premium.
+        </div>
+
+        <br>
+
+        <div style="
+            background:#8b5cf6;
+            color:white;
+            width:160px;
+            text-align:center;
+            padding:12px;
+            border-radius:14px;
+            font-weight:700;
+        ">
+            Assinar agora
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+# ================= FOOTER =================
 st.markdown("""
 <div class="bottom-nav">
-    <div class="nav-item">🏠<br>Início</div>
-    <div class="nav-item active">✨<br>Look</div>
+    <div class="nav-item active">🏠<br>Início</div>
     <div class="nav-item">👕<br>Armário</div>
-    <div class="nav-item">🛍️<br>Shop</div>
+    <div class="nav-item">✨<br>IA</div>
+    <div class="nav-item">🛍️<br>Marketplace</div>
     <div class="nav-item">👤<br>Perfil</div>
 </div>
 """, unsafe_allow_html=True)
-```
