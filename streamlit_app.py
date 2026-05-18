@@ -10,7 +10,7 @@ st.markdown("""
 <style>
 
 .stApp{
-    background: linear-gradient(180deg,#eef7ff,#dbeafe);
+    background: linear-gradient(180deg,#f8f4ff,#efe7ff);
     font-family:sans-serif;
 }
 
@@ -23,12 +23,12 @@ header {visibility:hidden;}
 .logo{
     font-size:42px;
     font-weight:900;
-    color:#0f172a;
+    color:#2e1065;
     margin-bottom:0;
 }
 
 .top-text{
-    color:#475569;
+    color:#6d5b8c;
     font-size:16px;
 }
 
@@ -36,7 +36,7 @@ header {visibility:hidden;}
 .section-title{
     font-size:24px;
     font-weight:800;
-    color:#0f172a;
+    color:#2e1065;
     margin-top:10px;
     margin-bottom:15px;
 }
@@ -44,33 +44,33 @@ header {visibility:hidden;}
 .look-title{
     font-size:28px;
     font-weight:800;
-    color:#0f172a;
+    color:#2e1065;
 }
 
 .look-sub{
-    color:#475569;
+    color:#6d5b8c;
     font-size:16px;
     line-height:1.6;
 }
 
 /* CARDS */
 .card{
-    background:rgba(255,255,255,0.75);
-    backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,0.4);
+    background:rgba(255,255,255,0.72);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.45);
     border-radius:28px;
     padding:20px;
-    box-shadow:0 8px 30px rgba(59,130,246,0.10);
+    box-shadow:0 8px 30px rgba(168,85,247,0.10);
 }
 
 /* QUICK ACCESS */
 .quick-card{
-    background:rgba(255,255,255,0.8);
+    background:rgba(255,255,255,0.78);
     border-radius:22px;
     padding:18px;
     text-align:center;
     border:1px solid rgba(255,255,255,0.5);
-    box-shadow:0 8px 20px rgba(59,130,246,0.08);
+    box-shadow:0 8px 20px rgba(168,85,247,0.08);
     transition:0.3s;
 }
 
@@ -86,39 +86,39 @@ header {visibility:hidden;}
     font-size:14px;
     font-weight:700;
     margin-top:10px;
-    color:#0f172a;
+    color:#2e1065;
 }
 
 /* PRODUCT CARD */
 .product-card{
-    background:rgba(255,255,255,0.85);
+    background:rgba(255,255,255,0.82);
     border-radius:22px;
     padding:12px;
     border:1px solid rgba(255,255,255,0.5);
-    box-shadow:0 8px 20px rgba(59,130,246,0.08);
+    box-shadow:0 8px 20px rgba(168,85,247,0.08);
 }
 
 .product-title{
     font-size:14px;
     font-weight:700;
-    color:#0f172a;
+    color:#2e1065;
 }
 
 .product-price{
-    color:#2563eb;
+    color:#9333ea;
     font-weight:800;
     margin-top:5px;
 }
 
 /* BUTTON */
 .stButton button{
-    background:linear-gradient(135deg,#60a5fa,#38bdf8);
+    background:linear-gradient(135deg,#c084fc,#a855f7);
     color:white;
     border:none;
     border-radius:18px;
     padding:12px 18px;
     font-weight:700;
-    box-shadow:0 8px 20px rgba(59,130,246,0.25);
+    box-shadow:0 8px 20px rgba(168,85,247,0.20);
     transition:0.3s;
 }
 
@@ -132,7 +132,7 @@ header {visibility:hidden;}
     bottom:0;
     left:0;
     right:0;
-    background:rgba(255,255,255,0.8);
+    background:rgba(255,255,255,0.75);
     backdrop-filter:blur(12px);
     padding:15px;
     border-top:1px solid rgba(255,255,255,0.5);
@@ -142,12 +142,12 @@ header {visibility:hidden;}
 
 .nav-item{
     text-align:center;
-    color:#64748b;
+    color:#7c6a99;
     font-size:12px;
 }
 
 .active{
-    color:#3b82f6;
+    color:#9333ea;
     font-weight:700;
 }
 
@@ -158,7 +158,7 @@ header {visibility:hidden;}
 st.markdown(
     """
     <div style="display:flex;justify-content:space-between;align-items:center;">
-        <div style="font-size:28px;color:#64748b;">☰</div>
+        <div style="font-size:28px;color:#7c6a99;">☰</div>
         <div class="logo">lookify</div>
         <div style="font-size:24px;">🔔</div>
     </div>
@@ -170,7 +170,7 @@ st.write("")
 
 st.markdown(
     """
-    <div style="font-size:34px;font-weight:800;color:#0f172a;">
+    <div style="font-size:34px;font-weight:800;color:#2e1065;">
         Bom dia, Julia! 👋
     </div>
 
