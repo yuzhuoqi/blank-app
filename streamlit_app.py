@@ -292,7 +292,7 @@ with c2:
         "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
         use_container_width=True
     )
-    st.markdown('<div class="product-title">Nebula Sneakers</div>', unsafe_allow_html=True)
+    st.markdown('<div class="product-title">Nike Free Vermelho</div>', unsafe_allow_html=True)
     st.markdown('<div class="product-price">R$ 179,90</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
