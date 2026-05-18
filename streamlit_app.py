@@ -105,7 +105,7 @@ header {visibility:hidden;}
 }
 
 .product-price{
-    color:#9333ea;
+    color:#111827;
     font-weight:800;
     margin-top:5px;
 }
