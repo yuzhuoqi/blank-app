@@ -198,10 +198,12 @@ st.write("")
 
 st.markdown(
     """
-    <span class="tag">Casual</span>
-    <span class="tag">Minimalista</span>
-    <span class="tag">Street</span>
-    <span class="tag">Confortável</span>
+    <div>
+        <span class="tag">Casual</span>
+        <span class="tag">Minimalista</span>
+        <span class="tag">Street</span>
+        <span class="tag">Confortável</span>
+    </div>
     """,
     unsafe_allow_html=True
 )
@@ -264,5 +266,4 @@ st.markdown("""
     <div class="nav-item">👤<br>Perfil</div>
 </div>
 """, unsafe_allow_html=True)
-
 ```
