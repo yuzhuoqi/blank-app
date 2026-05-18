@@ -10,7 +10,7 @@ st.markdown("""
 <style>
 
 .stApp{
-    background-color:#f5f5f7;
+    background: linear-gradient(180deg,#eef7ff,#dbeafe);
     font-family:sans-serif;
 }
 
@@ -23,12 +23,12 @@ header {visibility:hidden;}
 .logo{
     font-size:42px;
     font-weight:900;
-    color:#111827;
+    color:#0f172a;
     margin-bottom:0;
 }
 
 .top-text{
-    color:#6b7280;
+    color:#475569;
     font-size:16px;
 }
 
@@ -36,7 +36,7 @@ header {visibility:hidden;}
 .section-title{
     font-size:24px;
     font-weight:800;
-    color:#111827;
+    color:#0f172a;
     margin-top:10px;
     margin-bottom:15px;
 }
@@ -44,22 +44,38 @@ header {visibility:hidden;}
 .look-title{
     font-size:28px;
     font-weight:800;
-    color:#111827;
+    color:#0f172a;
 }
 
 .look-sub{
-    color:#6b7280;
+    color:#475569;
     font-size:16px;
     line-height:1.6;
 }
 
+/* CARDS */
+.card{
+    background:rgba(255,255,255,0.75);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.4);
+    border-radius:28px;
+    padding:20px;
+    box-shadow:0 8px 30px rgba(59,130,246,0.10);
+}
+
 /* QUICK ACCESS */
 .quick-card{
-    background:white;
-    border-radius:20px;
+    background:rgba(255,255,255,0.8);
+    border-radius:22px;
     padding:18px;
     text-align:center;
-    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+    border:1px solid rgba(255,255,255,0.5);
+    box-shadow:0 8px 20px rgba(59,130,246,0.08);
+    transition:0.3s;
+}
+
+.quick-card:hover{
+    transform:translateY(-3px);
 }
 
 .quick-icon{
@@ -68,52 +84,46 @@ header {visibility:hidden;}
 
 .quick-text{
     font-size:14px;
-    font-weight:600;
+    font-weight:700;
     margin-top:10px;
+    color:#0f172a;
 }
 
 /* PRODUCT CARD */
 .product-card{
-    background:white;
-    border-radius:20px;
+    background:rgba(255,255,255,0.85);
+    border-radius:22px;
     padding:12px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+    border:1px solid rgba(255,255,255,0.5);
+    box-shadow:0 8px 20px rgba(59,130,246,0.08);
 }
 
 .product-title{
     font-size:14px;
     font-weight:700;
-    color:#111827;
+    color:#0f172a;
 }
 
 .product-price{
-    color:#111827;
-    font-weight:700;
+    color:#2563eb;
+    font-weight:800;
     margin-top:5px;
-}
-
-.sponsor{
-    background:#ede9fe;
-    color:#7c3aed;
-    padding:4px 10px;
-    border-radius:999px;
-    font-size:11px;
-    width:fit-content;
-    margin-top:8px;
 }
 
 /* BUTTON */
 .stButton button{
-    background:#8b5cf6;
+    background:linear-gradient(135deg,#60a5fa,#38bdf8);
     color:white;
     border:none;
-    border-radius:16px;
+    border-radius:18px;
     padding:12px 18px;
     font-weight:700;
+    box-shadow:0 8px 20px rgba(59,130,246,0.25);
+    transition:0.3s;
 }
 
 .stButton button:hover{
-    background:#7c3aed;
+    transform:scale(1.02);
 }
 
 /* FOOTER */
@@ -122,21 +132,22 @@ header {visibility:hidden;}
     bottom:0;
     left:0;
     right:0;
-    background:white;
+    background:rgba(255,255,255,0.8);
+    backdrop-filter:blur(12px);
     padding:15px;
-    border-top:1px solid #e5e7eb;
+    border-top:1px solid rgba(255,255,255,0.5);
     display:flex;
     justify-content:space-around;
 }
 
 .nav-item{
     text-align:center;
-    color:#6b7280;
+    color:#64748b;
     font-size:12px;
 }
 
 .active{
-    color:#7c3aed;
+    color:#3b82f6;
     font-weight:700;
 }
 
@@ -147,7 +158,7 @@ header {visibility:hidden;}
 st.markdown(
     """
     <div style="display:flex;justify-content:space-between;align-items:center;">
-        <div style="font-size:28px;">☰</div>
+        <div style="font-size:28px;color:#64748b;">☰</div>
         <div class="logo">lookify</div>
         <div style="font-size:24px;">🔔</div>
     </div>
@@ -159,7 +170,7 @@ st.write("")
 
 st.markdown(
     """
-    <div style="font-size:34px;font-weight:800;color:#111827;">
+    <div style="font-size:34px;font-weight:800;color:#0f172a;">
         Bom dia, Julia! 👋
     </div>
 
@@ -177,6 +188,8 @@ st.markdown(
     '<div class="section-title">✨ LOOK DO DIA</div>',
     unsafe_allow_html=True
 )
+
+st.markdown('<div class="card">', unsafe_allow_html=True)
 
 col1, col2 = st.columns([1,1])
 
@@ -206,6 +219,8 @@ with col2:
     st.write("")
 
     st.button("Ver look completo")
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 st.write("")
 st.write("")
@@ -262,28 +277,34 @@ st.markdown(
 c1, c2, c3 = st.columns(3)
 
 with c1:
+    st.markdown('<div class="product-card">', unsafe_allow_html=True)
     st.image(
         "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
         use_container_width=True
     )
     st.markdown("**Trench coat bege**")
-    st.markdown("R$ 129,90")
+    st.markdown('<div class="product-price">R$ 129,90</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 with c2:
+    st.markdown('<div class="product-card">', unsafe_allow_html=True)
     st.image(
         "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
         use_container_width=True
     )
     st.markdown("**Bota de couro**")
-    st.markdown("R$ 179,90")
+    st.markdown('<div class="product-price">R$ 179,90</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 with c3:
+    st.markdown('<div class="product-card">', unsafe_allow_html=True)
     st.image(
         "https://images.unsplash.com/photo-1584917865442-de89df76afd3",
         use_container_width=True
     )
     st.markdown("**Bolsa marrom**")
-    st.markdown("R$ 89,90")
+    st.markdown('<div class="product-price">R$ 89,90</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 st.write("")
 st.write("")
