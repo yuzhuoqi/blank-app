@@ -32,41 +32,25 @@ header {visibility:hidden;}
     font-size:16px;
 }
 
-/* MAIN CARD */
-.main-card{
-    background:white;
-    border-radius:28px;
-    padding:22px;
-    box-shadow:0 4px 20px rgba(0,0,0,0.05);
-    margin-bottom:25px;
-}
-
-.look-title{
-    font-size:24px;
-    font-weight:800;
-    color:#111827;
-}
-
-.look-sub{
-    color:#6b7280;
-    font-size:15px;
-}
-
-.temp{
-    background:#8b5cf6;
-    color:white;
-    padding:6px 14px;
-    border-radius:999px;
-    font-size:14px;
-    font-weight:600;
-}
-
+/* TITLES */
 .section-title{
     font-size:24px;
     font-weight:800;
     color:#111827;
     margin-top:10px;
     margin-bottom:15px;
+}
+
+.look-title{
+    font-size:28px;
+    font-weight:800;
+    color:#111827;
+}
+
+.look-sub{
+    color:#6b7280;
+    font-size:16px;
+    line-height:1.6;
 }
 
 /* QUICK ACCESS */
@@ -118,7 +102,21 @@ header {visibility:hidden;}
     margin-top:8px;
 }
 
-/* FOOTER NAV */
+/* BUTTON */
+.stButton button{
+    background:#8b5cf6;
+    color:white;
+    border:none;
+    border-radius:16px;
+    padding:12px 18px;
+    font-weight:700;
+}
+
+.stButton button:hover{
+    background:#7c3aed;
+}
+
+/* FOOTER */
 .bottom-nav{
     position:fixed;
     bottom:0;
@@ -176,63 +174,41 @@ st.write("")
 
 # ===== LOOK DO DIA =====
 st.markdown(
-    """
-    <div class="main-card">
+    '<div class="section-title">✨ LOOK DO DIA</div>',
+    unsafe_allow_html=True
+)
 
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-            <div>
-                <div style="color:#7c3aed;font-weight:700;">
-                    ✨ LOOK DO DIA
-                </div>
+col1, col2 = st.columns([1,1])
 
-                <div class="look-sub">
-                    Baseado no clima e na sua rotina
-                </div>
-            </div>
+with col1:
+    st.image(
+        "https://images.unsplash.com/photo-1529139574466-a303027c1d8b",
+        use_container_width=True
+    )
 
-            <div class="temp">
-                18°C
-            </div>
+with col2:
+
+    st.markdown(
+        """
+        <div class="look-title">
+            Look casual
         </div>
 
         <br>
 
-        <div style="display:flex;gap:20px;align-items:center;">
-
-            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
-            width="180"
-            style="border-radius:20px;">
-
-            <div>
-                <div class="look-title">
-                    Look casual
-                </div>
-
-                <div class="look-sub">
-                    Perfeito para sua rotina na faculdade
-                </div>
-
-                <br>
-
-                <button style="
-                    background:#8b5cf6;
-                    color:white;
-                    border:none;
-                    padding:12px 18px;
-                    border-radius:16px;
-                    font-weight:700;
-                    cursor:pointer;
-                ">
-                    Ver look completo
-                </button>
-            </div>
-
+        <div class="look-sub">
+            Perfeito para sua rotina na faculdade
         </div>
+        """,
+        unsafe_allow_html=True
+    )
 
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+    st.write("")
+
+    st.button("Ver look completo")
+
+st.write("")
+st.write("")
 
 # ===== ACESSO RAPIDO =====
 st.markdown(
@@ -275,8 +251,9 @@ with col4:
     """, unsafe_allow_html=True)
 
 st.write("")
+st.write("")
 
-# ===== SUGESTOES =====
+# ===== SUGESTÕES =====
 st.markdown(
     '<div class="section-title">Sugestões para você</div>',
     unsafe_allow_html=True
@@ -285,64 +262,32 @@ st.markdown(
 c1, c2, c3 = st.columns(3)
 
 with c1:
-    st.markdown("""
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246"
-        width="100%" style="border-radius:16px;">
-
-        <div class="product-title">
-            Trench coat bege
-        </div>
-
-        <div class="product-price">
-            R$ 129,90
-        </div>
-
-        <div class="sponsor">
-            Patrocinado
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    st.image(
+        "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        use_container_width=True
+    )
+    st.markdown("**Trench coat bege**")
+    st.markdown("R$ 129,90")
 
 with c2:
-    st.markdown("""
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
-        width="100%" style="border-radius:16px;">
-
-        <div class="product-title">
-            Bota de couro
-        </div>
-
-        <div class="product-price">
-            R$ 179,90
-        </div>
-
-        <div class="sponsor">
-            Patrocinado
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    st.image(
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+        use_container_width=True
+    )
+    st.markdown("**Bota de couro**")
+    st.markdown("R$ 179,90")
 
 with c3:
-    st.markdown("""
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3"
-        width="100%" style="border-radius:16px;">
+    st.image(
+        "https://images.unsplash.com/photo-1584917865442-de89df76afd3",
+        use_container_width=True
+    )
+    st.markdown("**Bolsa marrom**")
+    st.markdown("R$ 89,90")
 
-        <div class="product-title">
-            Bolsa marrom
-        </div>
-
-        <div class="product-price">
-            R$ 89,90
-        </div>
-
-        <div class="sponsor">
-            Patrocinado
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+st.write("")
+st.write("")
+st.write("")
 
 # ===== FOOTER =====
 st.markdown("""
